@@ -128,7 +128,7 @@ final class BBHeader {
 
   @SuppressWarnings("PMD.AbstractClassWithoutAbstractMethod")
   abstract static class PadReadCounter {
-    // byte p000, p001, p002, p003, p004, p005, p006, p007;
+    
     byte p000;
 byte p001;
 byte p002;
