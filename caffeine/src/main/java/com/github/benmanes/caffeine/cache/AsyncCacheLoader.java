@@ -31,10 +31,10 @@ import org.jspecify.annotations.Nullable;
 /**
  * Computes or retrieves values asynchronously based on a key, for use in populating a
  * {@link AsyncLoadingCache}.
- * <p>
+ *
  * Most implementations will only need to implement {@link #asyncLoad}. Other methods may be
  * overridden as desired.
- * <p>
+ *
  * Usage example:
  * {@snippet class=com.github.benmanes.caffeine.Snippets region=asyncLoader_basic lang=java}
  *
@@ -51,7 +51,7 @@ public interface AsyncCacheLoader<K, V extends @Nullable Object> {
 
   /**
    * Asynchronously computes or retrieves the value corresponding to {@code key}.
-   * <p>
+   *
    * <b>Warning:</b> loading <b>must not</b> attempt to update any mappings of this cache directly.
    *
    * @param key the non-null key whose value should be loaded
@@ -67,16 +67,16 @@ public interface AsyncCacheLoader<K, V extends @Nullable Object> {
   /**
    * Asynchronously computes or retrieves the values corresponding to {@code keys}. This method is
    * called by {@link AsyncLoadingCache#getAll}.
-   * <p>
+   *
    * If the returned map doesn't contain all requested {@code keys}, then the entries it does
    * contain will be cached, and {@code getAll} will return the partial results. If the returned map
    * contains extra keys not present in {@code keys}, then all returned entries will be cached, but
    * only the entries for {@code keys} will be returned from {@code getAll}.
-   * <p>
+   *
    * This method should be overridden when bulk retrieval is significantly more efficient than many
    * individual lookups. Note that {@link AsyncLoadingCache#getAll} will defer to individual calls
    * to {@link AsyncLoadingCache#get} if this method is not overridden.
-   * <p>
+   *
    * <b>Warning:</b> loading <b>must not</b> attempt to update any mappings of this cache directly.
    *
    * @param keys the unique, non-null keys whose values should be loaded
@@ -98,10 +98,10 @@ public interface AsyncCacheLoader<K, V extends @Nullable Object> {
    * {@code key}. If the replacement value is not found, then the mapping will be removed if
    * {@code null} is computed. This method is called when an existing cache entry is refreshed by
    * {@link Caffeine#refreshAfterWrite}, or through a call to {@link LoadingCache#refresh}.
-   * <p>
+   *
    * <b>Warning:</b> loading <b>must not</b> attempt to update any mappings of this cache directly
    * or block waiting for other cache operations to complete.
-   * <p>
+   *
    * <b>Note:</b> <i>all exceptions thrown by this method will be logged and then swallowed</i>.
    *
    * @param key the non-null key whose value should be loaded
@@ -123,7 +123,7 @@ public interface AsyncCacheLoader<K, V extends @Nullable Object> {
    * Returns an asynchronous cache loader that delegates to the supplied mapping function for
    * retrieving the values. Note that {@link #asyncLoad} will discard any additional mappings
    * loaded when retrieving the {@code key} prior to returning to the value to the cache.
-   * <p>
+   *
    * Usage example:
    * {@snippet class=com.github.benmanes.caffeine.Snippets region=asyncLoader_bulk_sync lang=java}
    *
@@ -143,7 +143,7 @@ public interface AsyncCacheLoader<K, V extends @Nullable Object> {
    * Returns an asynchronous cache loader that delegates to the supplied mapping function for
    * retrieving the values. Note that {@link #asyncLoad} will silently discard any additional
    * mappings loaded when retrieving the {@code key} prior to returning to the value to the cache.
-   * <p>
+   *
    * Usage example:
    * {@snippet class=com.github.benmanes.caffeine.Snippets region=asyncLoader_bulk_async lang=java}
    *
