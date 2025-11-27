@@ -738,8 +738,7 @@ void view_clock(long ref_page)
 #ifdef DEBUG
 
   printf("\n No. %ld: to access %ld (%s)...\n", total_pg_refs, ref_page, page_tbl[ref_page].is_resident? "hit":"miss"); 
-  printf("free_mem_size = %ld,  num_hot_pages = %ld  clock_size = %ld ColdIncreaseCredits = %d\n", 
-	 free_mem_size, num_hot_pages, clock_size, ColdIncreaseCredits);
+
 
   p = clock_head;
   if (!p)

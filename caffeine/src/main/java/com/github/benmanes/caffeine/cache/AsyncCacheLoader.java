@@ -140,7 +140,7 @@ public interface AsyncCacheLoader<K, V extends @Nullable Object> {
   }
 
   /**
-   * Returns an asynchronous cache loader that delegates to the supplied mapping function for
+   * Returns an asynchronous   cache loader that delegates to the supplied mapping function for
    * retrieving the values. Note that {@link #asyncLoad} will silently discard any additional
    * mappings loaded when retrieving the {@code key} prior to returning to the value to the cache.
    *
